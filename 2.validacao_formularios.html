@@ -1,0 +1,40 @@
+<!--
+// Autor: Joubert Saquett
+// Descrição: Validação de Formularios em JS puro.
+//-->
+
+<!--////////////////////////////////////////////////////////
+//Formulário base
+////////////////////////////////////////////////////////-->
+<form id="register" method="post" onsubmit="validacao();">
+    <input type="text" name="nome"/>
+    <!-- Campos ...-->
+</form>
+
+<!--////////////////////////////////////////////////////////
+//Função para validação
+////////////////////////////////////////////////////////-->
+<script>
+    /////////Função para validar quando clicar em enviar
+    function validacao() {
+    /////////Obeter parametro preenchidos nos campos    
+        var formulario = document.register;
+        var nome = formulario.nome;
+        var email = formulario.email;
+
+    /////////Verifica se o campo Nome é diferente de vazio
+        if (nome.value == "") {
+            alert("Insira um nome válido.");
+            return false;
+        }
+
+    /////////Verifica se o Email tem @ e .
+        if(email.value.indexOf("@") == -1 || email.value.indexOf(".") == -1) {
+            alert("Insira um email válido");
+            return false;
+        }
+        
+    /////////Autoriza a submissão
+        return true;
+    }
+</script> 
