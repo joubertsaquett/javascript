@@ -1,0 +1,33 @@
+function duplica_file(){
+	newId = Math.floor(Math.random()* 9999);
+	var dup = $( "#link" ).clone();
+	
+	//Alterar ID do #download
+	var nomediv = dup.eq(0).attr('id');
+	var novo_nome = nomediv + newId;
+	dup.eq(0).attr('id', novo_nome);
+	
+	//var nomeInput = $(dup).children('input').eq(0).attr('id');
+	//newName = nomeInput + newId;
+	//dup.children('input').eq(0).attr('id', newName);
+	
+	
+	var btn = dup.find('.btn-del').eq(0).attr('onclick');
+	//dup.find('.btn-del').eq(0).attr('onclick', "remover_file(" + newName + ");");
+	dup.find('.btn-del').eq(0).attr('onclick', "remover_url(" + novo_nome + ");");
+	$("#duplicar2").append(dup);
+}
+
+
+
+
+<div class="input-group margin_b_30" id="link" >	
+    <span class="input-group-addon">URL:</span>
+    <input type="text" class="form-control" name="link[]" aria-describedby="url"/>
+    <div class="input-group-btn">
+      <button type="button" class="btn btn-small btn-add" onClick="duplica_file();"><i class="glyphicon glyphicon-plus"></i></button>
+      <button type="button" class="btn btn-small btn-del" onClick="" ><i class="glyphicon glyphicon-minus"></i></button>
+    </div>
+</div>
+<div id="duplicar2">
+</div>
