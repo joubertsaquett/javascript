@@ -1,0 +1,21 @@
+<input type="date" id="1" name="etrega[0]"  class="input-sm" style="position: initial;" onchange="validateDate(this.id)"  required>
+
+<script>
+    function validateDate(id){
+        var agora = new Date();
+        agora.setHours(00,00,00,00);
+
+        var value = document.getElementById(id).value;
+        var escolhida = new Date(value + ' 00:00:00:00');
+
+        if (escolhida < agora){
+            // alert('DATA MENOR QUE HOJE');
+            document.getElementById(id).value = [agora.getFullYear(), agora.getMonth() + 1, agora.getDate() + 1].map(v => v < 10 ? '0' + v : v).join('-');
+        } else if (escolhida > agora){
+            // alert('DATA MAIOR QUE HOJE');
+        } else {
+            // alert('HOJE');
+            document.getElementById(id).value = [agora.getFullYear(), agora.getMonth() + 1, agora.getDate() + 1].map(v => v < 10 ? '0' + v : v).join('-');
+        }
+    }
+</script>
